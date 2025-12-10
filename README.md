@@ -21,6 +21,8 @@ This is the Capstone project for the **Google Data Analytics Professional Certif
 2.  Why would casual riders buy Cyclistic annual memberships?
 3.  How can Cyclistic use digital media to influence casual riders to become members?
 
+Lily Moreno asked me to answer the 1st Question - How do annual members and casual riders use Cyclistic bikes differently?
+
 ---
 
 ##  2. Prepare Phase
