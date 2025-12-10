@@ -1,85 +1,135 @@
-# Google Data Analytics Capstone: Cyclistic Case Study 🚴‍♀️
+# Google Data Analytics Capstone: Cyclistic Bike-Share Case Study 🚴‍♀️
 
-## 📖 Introduction
-This is my Capstone project for the **Google Data Analytics Professional Certificate**. 
+##  Introduction
+This is the Capstone project for the **Google Data Analytics Professional Certificate**. 
 
-**Scenario:** I am a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. 
+**Scenario:** I am a junior data analyst working in the marketing analyst team at **Cyclistic**, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, my team wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
 **Objective:** Design marketing strategies aimed at converting casual riders into annual members.
 
 ---
 
-## ❓ 1. Ask
-**Business Task:**
-Analyze historical bike trip data to identify trends in how annual members and casual riders use Cyclistic bikes differently.
+##  1. Ask Phase
+**Business Task:** Analyze historical bike trip data to identify trends in how **Annual Members** and **Casual Riders** use Cyclistic bikes differently.
 
-**Stakeholders:**
-* **Lily Moreno:** Director of Marketing.
-* **Cyclistic Executive Team:** Detail-oriented executive team.
+**Key Stakeholders:**
+* **Lily Moreno:** Director of Marketing (My manager).
+* **Cyclistic Executive Team:** The detailed-oriented executive team who will decide whether to approve the recommended marketing program.
 
----
-
-## 💾 2. Prepare
-**Data Source:**
-I used the previous 12 months of Cyclistic trip data (public data provided by Motivate International Inc.).
-* [Link to Original Dataset](https://divvy-tripdata.s3.amazonaws.com/index.html)
-* *Note:* Data-privacy issues prohibit using riders’ personally identifiable information.
+**Guiding Questions:**
+1.  How do annual members and casual riders use Cyclistic bikes differently?
+2.  Why would casual riders buy Cyclistic annual memberships?
+3.  How can Cyclistic use digital media to influence casual riders to become members?
 
 ---
 
-## 🛠 3. Process
-**Tools Used:**
-1.  **R Studio:** For data cleaning, transformation, and validation.
-2.  **Power BI:** For creating interactive visualizations and geospatial analysis.
+##  2. Prepare Phase
+**Data Source:** I used 12 months of Cyclistic's historical trip data (public data provided by Motivate International Inc.).
+* **Dataset:** [Cyclistic Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
+* **Date Range:** [Insert Date Range, e.g., Jan 2024 - Dec 2024]
+* **Privacy:** Riders' personal identifiable information (PII) has been removed, prohibiting analysis of individual user demographics (age, gender, address).
 
-**Data Cleaning Steps (R Studio):**
-* Consolidated 12 CSV files into a single dataframe.
-* Standardized column names and removed duplicates.
-* Created new columns: `ride_length`, `day_of_week`, `month`.
-* Filtered out data anomalies (rides < 1 minute or > 24 hours).
-
-
-*The full R analysis script is available in this repository as `Cyclistic Bike-Share Analysis Capstone`.*
+**Data Organization:** The data is stored in monthly CSV files. Each file contains 13 columns, including:
+* `ride_id` (Unique ID)
+* `rideable_type` (Classic, Electric, Docked)
+* `started_at` & `ended_at` (Timestamps)
+* `start_station_name` & `end_station_name`
+* `member_casual` (User Type)
 
 ---
 
-## 📊 4. Analyze & Share
-I exported the cleaned data to **Power BI** to create the following visualizations.
+##  3. Process Phase
+**Tools Used:** * **R Studio:** Chosen for its ability to handle large datasets (millions of rows) and for reproducible data cleaning.
+* **Power BI:** Chosen for creating interactive dashboards and geospatial visualizations.
 
-### A. Weekly Riding Habits
-**Insight:** Members (Dark Blue) use bikes for commuting (Mon-Fri), while Casual riders (Light Blue) spike significantly on weekends.
+**Cleaning & Manipulation Steps (R Studio):**
+I began by importing the data and inspecting the structure.
+![R Code Imports](visualizations/image_9cadb0.png)
+
+1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
+2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
+3.  **Calculations:**
+    * Created `ride_length` by subtracting `started_at` from `ended_at`.
+    * Extracted `day_of_week`, `month`, and `year` for granular time-based analysis.
+4.  **Data Quality Check:**
+    * Removed "bad data" where `ride_length` was negative or less than 1 minute (false starts).
+    * Removed outlier rides longer than 24 hours (stolen/unreturned bikes).
+    * Removed administrative test rides (`start_station_name` = "HQ QR").
+
+*The full R cleaning script is available in this repository as `analysis.Rmd`.*
+
+---
+
+##  4. Analyze Phase
+**Goal:** Identify patterns and relationships in the cleaned data.
+
+**Key Analysis Performed in R:**
+* **Descriptive Statistics:** Calculated Mean, Median, Max, and Min for ride duration.
+* **Aggregation:** Grouped data by `member_casual` and `day_of_week` to compare volume and duration.
+
+**Findings:**
+1.  **Duration:** Casual riders take significantly longer rides (Mean: ~24 mins) compared to Members (Mean: ~12 mins).
+2.  **Frequency:** Members ride more frequently but for shorter durations, implying utility/commute.
+3.  **Seasonality:** Both groups peak in summer, but Casual ridership drops drastically in winter.
+
+---
+
+##  5. Share Phase
+I exported the cleaned and aggregated data to **Power BI** to create an interactive dashboard. The visualizations below tell the story of the data.
+
+### A. Weekly Riding Habits: Commute vs. Leisure
+**Why this chart?** To understand the "when" of rider usage.
+**Observation:**
+* **Members (Dark Blue):** Dominant on weekdays (Mon-Fri), peaking at 8 AM and 5 PM. This confirms they use the service for commuting to work.
+* **Casuals (Light Blue):** Dominant on weekends (Sat-Sun), indicating leisure or tourism activity.
 ![Weekly Habits](visualizations/Screenshot 2025-12-11 034152.png)
 
-### B. Ride Duration
-**Insight:** Casual riders take trips that are nearly **2x longer** than members. Members prioritize speed/efficiency (A to B), while Casuals prioritize leisure.
+### B. Average Ride Duration: "A to B" vs. Exploration
+**Why this chart?** To understand the "how" of rider usage.
+**Observation:**
+Casual riders keep bikes nearly **2x longer** than members. This suggests Members value speed and efficiency, while Casuals value the experience and exploration.
 ![Ride Duration](visualizations/Screenshot 2025-12-11 034353.png)
 
-### C. Seasonality
-**Insight:** Both groups peak in Summer (July/Aug). However, Casual ridership drops near zero in Winter, whereas Members maintain a steady baseline.
+### C. Seasonality: The Summer Spike
+**Why this chart?** To see if marketing campaigns should be timed.
+**Observation:**
+Ridership for both groups peaks in July/August. However, Casual riders are "fair-weather" riders—their usage plummets in winter, whereas Members maintain a steady baseline of usage year-round.
 ![Seasonality](visualizations/Screenshot 2025-12-11 034716.png)
 
-### D. Bike Preference
-**Insight:** Casual riders are the primary users of "Docked Bikes" and show a strong preference for Electric bikes on weekends.
+### D. Bike Type Preference
+**Why this chart?** To see if equipment choice differs by user.
+**Observation:**
+Casual riders are the exclusive users of "Docked Bikes" and show a higher affinity for Electric Bikes on weekends compared to members.
 ![Bike Preference](visualizations/Screenshot 2025-12-11 035321.png)
 
-### E. Detailed Variance
-**Insight:** An area chart highlights how Member usage is stable, while Casual usage is highly volatile based on the day.
-![Variance](visualizations/Screenshot 2025-12-11 035048.png)
-
-### F. Geospatial Analysis
-**Insight:** * **Casuals:** Cluster around the coastline and parks (tourism spots).
-* **Members:** Scattered throughout the city grid (office/residential areas).
+### E. Geospatial Analysis: Hotspots
+**Why this map?** To see "where" riders start their journeys.
+**Observation:**
+* **Casuals (Red/Orange):** Heavily clustered along the coastline, parks, and tourist attractions (Navy Pier, Millennium Park).
+* **Members (Blue):** Distributed evenly across the city grid, near office buildings and residential hubs.
 ![Map](visualizations/Screenshot 2025-12-11 040349.jpg)
 
 ---
 
-## 💡 5. Act (Recommendations)
-Based on the analysis, I recommend the following marketing strategies:
+##  6. Act Phase
+**Recommendations:**
+Based on the analysis that Casual riders are **weekend-focused, leisure-oriented, and clustered near entertainment hubs**, I propose the following marketing strategies:
 
-1.  **"Weekend Warrior" Membership:** Create a membership tier specifically for weekends, bridging the gap for casual riders who only ride Sat/Sun.
-2.  **Location-Based Ads:** Place physical advertisements at the docking stations near the coastline and parks (identified in the Map visualization).
-3.  **Summer Campaign:** Launch the main marketing push in **May/June**, just before the seasonal spike in casual ridership.
-4.  **Duration Incentives:** Offer discounts for rides over 20 minutes to annual members, appealing to the casual rider's habit of taking longer trips.
+1.  **"Weekend Warrior" Membership:**
+    * *Why:* Casuals spike on weekends.
+    * *Action:* Create a membership tier specifically for Friday-Sunday usage to bridge the gap between single-rides and full annual commitments.
+
+2.  **Geotargeted Advertising:**
+    * *Why:* The Map visualization shows Casuals cluster at the coast.
+    * *Action:* Place physical advertisements and QR codes at the top 10 coastal stations (e.g., Navy Pier) highlighting the savings of membership for longer rides.
+
+3.  **Seasonal "Summer Pass" Campaign:**
+    * *Why:* Seasonality chart shows usage peaks in July.
+    * *Action:* Launch a limited-time "Summer Pass" in May/June. If users ride frequently during summer, offer them a discount to upgrade to an annual plan in the fall.
+
+4.  **Duration-Based Incentives:**
+    * *Why:* Casuals ride for 24+ minutes.
+    * *Action:* Market the annual membership as a way to avoid "overage fees" on long leisure rides, positioning it as the "stress-free" way to explore the city.
 
 ---
-*Author: Rachit Malik*
+*Author: Rachit Malik *Date: December 11, 2025*
