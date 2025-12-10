@@ -44,7 +44,7 @@ This is the Capstone project for the **Google Data Analytics Professional Certif
 
 **Cleaning & Manipulation Steps (R Studio):**
 I began by importing the data and inspecting the structure.
-![R Code Imports](visualizations/image_9cadb0.png)
+![R Code Imports]([visualizations/image_9cadb0.png](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic%20Bike-Share%20Analysis%20Capstone.Rmd))
 
 1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
 2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
@@ -82,32 +82,32 @@ I exported the cleaned and aggregated data to **Power BI** to create an interact
 **Observation:**
 * **Members (Dark Blue):** Dominant on weekdays (Mon-Fri), peaking at 8 AM and 5 PM. This confirms they use the service for commuting to work.
 * **Casuals (Light Blue):** Dominant on weekends (Sat-Sun), indicating leisure or tourism activity.
-![Weekly Habits](visualizations/Screenshot 2025-12-11 034152.png)
+![Weekly Habits](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20034152.png?raw=true)
 
 ### B. Average Ride Duration: "A to B" vs. Exploration
 **Why this chart?** To understand the "how" of rider usage.
 **Observation:**
 Casual riders keep bikes nearly **2x longer** than members. This suggests Members value speed and efficiency, while Casuals value the experience and exploration.
-![Ride Duration](visualizations/Screenshot 2025-12-11 034353.png)
+![Ride Duration](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20034353.png?raw=true)
 
 ### C. Seasonality: The Summer Spike
 **Why this chart?** To see if marketing campaigns should be timed.
 **Observation:**
 Ridership for both groups peaks in July/August. However, Casual riders are "fair-weather" riders—their usage plummets in winter, whereas Members maintain a steady baseline of usage year-round.
-![Seasonality](visualizations/Screenshot 2025-12-11 034716.png)
+![Seasonality](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20034716.png?raw=true)
 
 ### D. Bike Type Preference
 **Why this chart?** To see if equipment choice differs by user.
 **Observation:**
 Casual riders are the exclusive users of "Docked Bikes" and show a higher affinity for Electric Bikes on weekends compared to members.
-![Bike Preference](visualizations/Screenshot 2025-12-11 035321.png)
+![Bike Preference](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20035321.png?raw=true)
 
 ### E. Geospatial Analysis: Hotspots
 **Why this map?** To see "where" riders start their journeys.
 **Observation:**
 * **Casuals (Red/Orange):** Heavily clustered along the coastline, parks, and tourist attractions (Navy Pier, Millennium Park).
 * **Members (Blue):** Distributed evenly across the city grid, near office buildings and residential hubs.
-![Map](visualizations/Screenshot 2025-12-11 040349.jpg)
+![Map](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20040349.png?raw=true)
 
 ---
 
