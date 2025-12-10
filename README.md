@@ -5,6 +5,8 @@ This is the Capstone project for the **Google Data Analytics Professional Certif
 
 **Scenario:** I am a junior data analyst working in the marketing analyst team at **Cyclistic**, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, my team wants to understand how casual riders and annual members use Cyclistic bikes differently.
 
+Course: [Google Data Analytics Capstone: Complete a Case Study](https://www.coursera.org/learn/google-data-analytics-capstone)
+
 **Objective:** Design marketing strategies aimed at converting casual riders into annual members.
 
 ---
@@ -46,7 +48,7 @@ Lily Moreno asked me to answer the 1st Question - How do annual members and casu
 
 **Cleaning & Manipulation Steps (R Studio):**
 I began by importing the data and inspecting the structure.
-![R Code Imports](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic%20Bike-Share%20Analysis%20Capstone.Rmd)
+![R Code Imports](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/rscript.R)
 
 1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
 2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
