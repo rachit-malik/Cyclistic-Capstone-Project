@@ -155,20 +155,20 @@ Based on the analysis that Casual riders are **weekend-focused, leisure-oriented
 
  ## E. Some more viz made on Rstudio (ggplot)
  
-    ![bar_chart_to_show_weekly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture.png?raw=true)
+   ![bar_chart_to_show_weekly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture.png?raw=true)
     ![bar_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture1.png?raw=true)
     
-    * **finding:**  Casual riders peak on weekends.
+   * **finding:**  Casual riders peak on weekends.
     
-    ![Distribution of riders](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20pie.png?raw=true)
+   ![Distribution of riders](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20pie.png?raw=true)
     ![pie_distribution](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_pie.png?raw=true)
     
-     * **finding:**  there are 60% membership riders and 40% casual riders on whom we need to focus for future ad campaign.
+   * **finding:**  there are 60% membership riders and 40% casual riders on whom we need to focus for future ad campaign.
      
-    ![yearly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20line.png?raw=true)
+   ![yearly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20line.png?raw=true)
     ![yearly_trends_summerpeak](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_line.png?raw=true)
     
-     * **finding:** bikes riding peek in summer months around `May start - July end`, the time best for campaiging is the start of summer time.
+   * **finding:** bikes riding peek in summer months around `May start - July end`, the time best for campaiging is the start of summer time.
 
 ---
 *Author: Rachit Malik *Date: December 11, 2025*
