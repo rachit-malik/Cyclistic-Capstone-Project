@@ -30,7 +30,7 @@ Lily Moreno asked me to answer the 1st Question - How do annual members and casu
 ##  2. Prepare Phase
 **Data Source:** I used 12 months of Cyclistic's historical trip data (public data provided by Motivate International Inc.).
 * **Dataset:** [Cyclistic Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
-* **Date Range:** [Insert Date Range, e.g., Jan 2024 - Dec 2024]
+* **Date Range:** [Insert Date Range, e.g., Jan 2022 - Dec 2022]
 * **Privacy:** Riders' personal identifiable information (PII) has been removed, prohibiting analysis of individual user demographics (age, gender, address).
 
 **Data Organization:** The data is stored in monthly CSV files. Each file contains 13 columns, including:
@@ -49,7 +49,7 @@ Lily Moreno asked me to answer the 1st Question - How do annual members and casu
 **Cleaning & Manipulation Steps (R Studio):**
 I began by importing the data and inspecting the structure.
 ![R Code Imports](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/rscript.R)
-![R_markdown_html](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.html)
+![R_markdown_html](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.rmd)
 
 1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
 2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
