@@ -48,8 +48,9 @@ Lily Moreno asked me to answer the 1st Question - How do annual members and casu
 
 **Cleaning & Manipulation Steps (R Studio):**
 I began by importing the data and inspecting the structure.
-![R Code Imports](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/rscript.R)
-![R_markdown_html](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.rmd)
+[R Code Imports](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/rscript.R)
+[R_markdownfile](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.rmd)
+[R_markdown_pdf](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.pdf)
 
 1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
 2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
