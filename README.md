@@ -53,14 +53,24 @@ I began by importing the data and inspecting the structure.
 [R_markdown_pdf](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/Cyclistic-Bike-Share-Analysis-Capstone.pdf)
 
 1.  **Consolidation:** Merged 12 monthly CSV files into a single dataframe (`all_trips`) containing millions of records.
+![skim_without_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20011603.png?raw=true)
 2.  **Standardization:** Used `janitor::clean_names()` to ensure consistent column naming.
+![cleaning names and removing empty rows](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20014014.png?raw=true)
 3.  **Calculations:**
     * Created `ride_length` by subtracting `started_at` from `ended_at`.
     * Extracted `day_of_week`, `month`, and `year` for granular time-based analysis.
+      ![adding_calculation columns](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20014708.png?raw=true)
 4.  **Data Quality Check:**
     * Removed "bad data" where `ride_length` was negative or less than 1 minute (false starts).
     * Removed outlier rides longer than 24 hours (stolen/unreturned bikes).
     * Removed administrative test rides (`start_station_name` = "HQ QR").
+    ![filter_data](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20020855.png?raw=true)
+    
+5. **checking and conforming the changes in the data:**
+    * After cleaning the data to check the changes we run `skim_without_charts` to get summary of our data.
+    * 4291805 rows left after data cleaning (removed unnessasary or rows with no clear data(bad data)[1375912 rows removed])
+    *  2 columns we added `days_of_week`,`month`.
+    ![skim_without_charts_afterdataclean](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20021041.png?raw=true)
 
 *The full R cleaning script is available in this repository as `analysis.Rmd`.*
 
@@ -72,11 +82,13 @@ I began by importing the data and inspecting the structure.
 **Key Analysis Performed in R:**
 * **Descriptive Statistics:** Calculated Mean, Median, Max, and Min for ride duration.
 * **Aggregation:** Grouped data by `member_casual` and `day_of_week` to compare volume and duration.
+  ![data_analyze](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20021551.png?raw=true)
 
 **Findings:**
 1.  **Duration:** Casual riders take significantly longer rides (Mean: ~24 mins) compared to Members (Mean: ~12 mins).
 2.  **Frequency:** Members ride more frequently but for shorter durations, implying utility/commute.
 3.  **Seasonality:** Both groups peak in summer, but Casual ridership drops drastically in winter.
+![findings](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20021604.png?raw=true)
 
 ---
 
@@ -115,6 +127,8 @@ Casual riders are the exclusive users of "Docked Bikes" and show a higher affini
 * **Members (Blue):** Distributed evenly across the city grid, near office buildings and residential hubs.
 ![Map](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-11%20040349.png?raw=true)
 
+
+
 ---
 
 ##  6. Act Phase
@@ -136,6 +150,17 @@ Based on the analysis that Casual riders are **weekend-focused, leisure-oriented
 4.  **Duration-Based Incentives:**
     * *Why:* Casuals ride for 24+ minutes.
     * *Action:* Market the annual membership as a way to avoid "overage fees" on long leisure rides, positioning it as the "stress-free" way to explore the city.
+
+    ### E. Some more viz made on Rstudio (ggplot)
+    ![bar_chart_to_show_weekly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture.png?raw=true)
+    ![bar_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture1.png?raw=true)
+    * **finding:**  Casual riders peak on weekends.
+    ![Distribution of riders](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20pie.png?raw=true)
+    ![pie_distribution](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_pie.png?raw=true)
+     * **finding:**  there are 60% membership riders and 40% casual riders on whom we need to focus for future ad campaign.
+    ![yearly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20line.png?raw=true)
+    ![yearly_trends_summerpeak](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_line.png?raw=true)
+     * **finding:** bikes riding peek in summer months around `May start - July end`, the time best for campaiging is the start of summer time.
 
 ---
 *Author: Rachit Malik *Date: December 11, 2025*
