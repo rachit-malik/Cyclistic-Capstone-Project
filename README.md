@@ -62,7 +62,7 @@ I began by importing the data and inspecting the structure.
     * Created `ride_length` by subtracting `started_at` from `ended_at`.
     * Extracted `day_of_week`, `month`, and `year` for granular time-based analysis.
     
-      ![adding_calculation columns](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20014708.png?raw=true)
+![adding_calculation columns](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Screenshot%202025-12-09%20014708.png?raw=true)
 4.  **Data Quality Check:**
     * Removed "bad data" where `ride_length` was negative or less than 1 minute (false starts).
     * Removed outlier rides longer than 24 hours (stolen/unreturned bikes).
