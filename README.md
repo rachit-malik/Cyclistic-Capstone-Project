@@ -8,6 +8,11 @@ This is the Capstone project for the **Google Data Analytics Professional Certif
 Course: [Google Data Analytics Capstone: Complete a Case Study](https://www.coursera.org/learn/google-data-analytics-capstone)
 
 **Objective:** Design marketing strategies aimed at converting casual riders into annual members.
+   
+ **Final Deleverable PPT**
+ 
+   [**Cyclistic Bike-Share Analysis**](https://docs.google.com/presentation/d/1oIhyhwHdN5fSbSQPvPlVQo5vdad9u9MMh81HICGuKSU/edit?usp=sharing)
+   
 
 ---
 
@@ -160,10 +165,14 @@ Based on the analysis that Casual riders are **weekend-focused, leisure-oriented
 4.  **Duration-Based Incentives:**
     * *Why:* Casuals ride for 24+ minutes.
     * *Action:* Market the annual membership as a way to avoid "overage fees" on long leisure rides, positioning it as the "stress-free" way to explore the city.
-    
+
+---
+   ## Final Deleverable PPT 
+   [Cyclistic Bike-Share Analysis](https://docs.google.com/presentation/d/1oIhyhwHdN5fSbSQPvPlVQo5vdad9u9MMh81HICGuKSU/edit?usp=sharing)
+   
 ---
 
- ### E. Some more viz made on Rstudio (ggplot)
+ ### Some more viz made on Rstudio (ggplot)
  
    ![bar_chart_to_show_weekly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture.png?raw=true)
     ![bar_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture1.png?raw=true)
@@ -180,6 +189,9 @@ Based on the analysis that Casual riders are **weekend-focused, leisure-oriented
     ![yearly_trends_summerpeak](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_line.png?raw=true)
     
    * **finding:** bikes riding peek in summer months around `May start - July end`, the time best for campaiging is the start of summer time.
+
+
+   
 
 ---
 *Author: Rachit Malik *Date: December 11, 2025*
