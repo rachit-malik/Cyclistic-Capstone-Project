@@ -174,19 +174,71 @@ Based on the analysis that Casual riders are **weekend-focused, leisure-oriented
 
  ### Some more viz made on Rstudio (ggplot)
  
-   ![bar_chart_to_show_weekly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture.png?raw=true)
-    ![bar_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture1.png?raw=true)
+```
+# See which days are most popular
+daily_usage <- all_trips_clean %>% 
+  group_by(member_casual, day_of_week) %>% 
+  summarise(
+    number_of_rides = n(),
+    average_duration = mean(ride_length),
+    .groups = "drop"
+  ) %>% 
+  arrange(member_casual, day_of_week)
+
+print(daily_usage)
+
+ggplot(data = daily_usage) +
+  aes(x = day_of_week, y = number_of_rides, fill = member_casual) +
+  geom_col(position = "dodge") +
+  labs(title = "Total Rides per Day: Member vs Casual",
+       y = "Number of Rides", x = "Day of Week") +
+  scale_y_continuous(labels = scales::comma)
+  ```
+
+   ![bar_charts](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture1.png?raw=true)
     
    * **finding:**  Casual riders peak on weekends.
 
    ---
-   ![Distribution of riders](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20pie.png?raw=true)
-    ![pie_distribution](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_pie.png?raw=true)
+```
+# 1. Prepare the data: Count and calculate percentages
+user_dist <- all_trips_clean %>%
+  count(member_casual) %>%
+  mutate(perc = n / sum(n)) %>% 
+  mutate(labels = scales::percent(perc))
+
+# 2. Plot
+ggplot(user_dist, aes(x = "", y = perc, fill = member_casual)) +
+  geom_col(color = "white") +
+  coord_polar(theta = "y") + # This turns the bar chart into a circle
+  geom_text(aes(label = labels), position = position_stack(vjust = 0.5)) +
+  theme_void() + # Removes the background grid/axes
+  labs(title = "Distribution of Rider Types", fill = "Rider Type")  
+  ```
+ ![pie_distribution](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_pie.png?raw=true)
     
-   * **finding:**  there are 60% membership riders and 40% casual riders on whom we need to focus for future ad campaign.
+   * **finding:** there are 60% membership riders and 40% casual riders on whom we need to focus for future ad campagin.
+   
      ---
-   ![yearly_trends](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20line.png?raw=true)
-    ![yearly_trends_summerpeak](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_line.png?raw=true)
+```
+# 1. Prepare Data: Group by Month and User Type
+monthly_trend <- all_trips_clean %>% 
+  mutate(month = floor_date(started_at, "month")) %>% # Round dates to the 1st of the month
+  group_by(month, member_casual) %>% 
+  summarise(number_of_rides = n(), .groups = "drop")
+
+# 2. Plot Line Chart
+ggplot(monthly_trend, aes(x = month, y = number_of_rides, color = member_casual)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 3) +
+  scale_y_continuous(labels = comma) + # Adds commas to large numbers
+  labs(title = "Monthly Ride Trends", 
+       subtitle = "Casual riders peak significantly in summer months",
+       x = "Month", y = "Number of Rides") +
+  theme_minimal()
+```
+
+ ![yearly_trends_summerpeak](https://github.com/rachit-malik/Cyclistic-Capstone-Project/blob/main/viz/Untitled%20picture_line.png?raw=true)
     
    * **finding:** bikes riding peek in summer months around `May start - July end`, the time best for campaiging is the start of summer time.
 
