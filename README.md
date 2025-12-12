@@ -186,7 +186,7 @@ daily_usage <- all_trips_clean %>%
   arrange(member_casual, day_of_week)
 
 print(daily_usage)
-
+# 2. Plot the bar chart
 ggplot(data = daily_usage) +
   aes(x = day_of_week, y = number_of_rides, fill = member_casual) +
   geom_col(position = "dodge") +
